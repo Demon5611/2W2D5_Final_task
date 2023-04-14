@@ -1,0 +1,135 @@
+* {
+    font-family: 'IBM Plex Mono', monospace;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.translit {
+    text-align: center;
+    margin-top: 44px;
+    margin-bottom: 86px;
+
+    color: #4520ab;
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: -8%;
+}
+
+.input-form {
+    position: relative;
+    font-weight: 40px;
+    font-size: 8px;
+    align-items: center;
+    display: inline-flex;
+    border-radius: 14px;
+    border: 2px solid #111111;
+    width: 500px;
+    height: 56px;
+}
+.placeholder {
+    border: none;
+    width: 300px;
+    height: 24.64px;
+    top: 198.56px;
+    padding-left: 20px;
+    opacity: 60%;
+}
+
+.button {
+    margin: 400px;
+    position: absolute;
+    background: #111111;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+/*======UL=======*/
+.dictionary {
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+
+    width: 500px;
+    height: 100px;
+    /* top: 298px; */
+    /* left: 390px; */
+}
+
+.ulRussian {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    background: #f0f0f0;
+    border: 2px solid #111111;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    min-height: 40px;
+    width: 250px;
+    list-style-type: none;
+    border-start-start-radius: 8px;
+}
+.index {
+    padding-right: 28px;
+}
+
+.ulEnglish {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 28px;
+
+    background: #ccc9c9;
+    border: 2px solid #111111;
+    border-top: none;
+    border-right: none;
+    min-height: 40px;
+    width: 250px;
+    list-style-type: none;
+    border-top-right-radius: 8px;
+}
+
+.english_krestik {
+    padding-left: 135px;
+}
+/*== ERASE ================================== =*/
+
+.erase {
+    /* margin-top: -60px; */
+}
+
+.btnErase {
+    display: inline-block;
+    justify-self: flex-start;
+    align-items: center;
+
+    background: #ccc9c9;
+    border-radius: 8px;
+    width: 176px;
+    height: 38px;
+    color: #0f0f0f;
+    size: 18px;
+    position: relative;
+    z-index: 0;
+}
+
+.erase_icon {
+    display: flex;
+    padding-left: 10px;
+    top: 27px;
+    align-self: center;
+    position: relative;
+    z-index: 1;
+}
