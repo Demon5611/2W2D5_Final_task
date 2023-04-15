@@ -62,18 +62,18 @@
     align-items: center;
 }
 
-.row{
+.row {
     /* padding-top: 40px; */
     align-items: center;
     display: inline-flex;
     width: 500px;
-
 }
 .russian {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-left: 10px;
+
     background: #f0f0f0;
     border: 2px solid #111111;
     border-top: none;
@@ -85,7 +85,7 @@
     border-start-start-radius: 8px;
 }
 .index {
-    padding-right: 28px;
+    padding-right: 15px;
 }
 
 .english {
@@ -100,17 +100,19 @@
     border-right: none;
     min-height: 40px;
     width: 250px;
-
     border-top-right-radius: 8px;
+}
+.delete {
+    border-radius: 45px;
+    display: flex;
+    margin-left: 145px;
 }
 
 .english_krestik {
-    padding-left: 135px;
 }
 /*== ERASE ================================== =*/
 
 .erase {
-    /* margin-top: -60px; */
 }
 
 .btnErase {
