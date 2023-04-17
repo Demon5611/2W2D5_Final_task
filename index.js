@@ -48,13 +48,34 @@ function addNewWord() {
   border-radius: 45px;
   display: flex;
   margin-left: 130px;`;
+
+  // удаление по крестику================
+
+  newImg.addEventListener("click", (event) => {
+    newElement.remove();
+    englElem.remove();
+    divDict.remove();
+
+    let indexes = document.querySelectorAll(".index");
+    indexes.forEach((elem, index) => {
+      elem.innerText = index + 1;
+    });
+  });
+
+  // ================
   btnDel.appendChild(newImg);
   englElem.appendChild(btnDel);
-
   divDict.append(englElem);
   input.value = "";
 }
 
+// удаление по кнопке Очистить Все ================
+window.addEventListener("load", (event) => {
+  document.querySelector(".btnErase").onclick = function () {
+    location.reload(true);
+  };
+});
+// ===function translit=============
 function translit(addNewWord) {
   let result = "";
   for (let i = 0; i < addNewWord.length; i++) {
@@ -136,17 +157,3 @@ const dictionary = {
   Я: "Ya",
   я: "ya",
 };
-
-// // делаем удаление erase
-// btn.addEventListener("click", ("src="./icons/krestik.svg"") {
-//   for (i = 0; i < indexes.length; i--)
-//   {
-//     indexes[i].innerText = i + 1 ???
-//   }
-// })
-
-/*для удаления индексов по крестику*/
-// const indexes = document.querySelectorAll(".index");
-// indexes.forEach((el, index) => {
-//   el[index].innerText = index;
-// });
