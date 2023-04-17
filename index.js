@@ -1,8 +1,9 @@
 const input = document.querySelector(".placeholder");
 let btn = document.querySelector(".button");
 let newDictionary = document.querySelector(".dictionary");
-btn.addEventListener("click", addNewWord);
 const english = document.querySelector(".english");
+
+btn.addEventListener("click", addNewWord);
 
 // keydown работает только с  input полем
 // event.key  - key - это обьект, где указывается то, на что нажали
@@ -29,38 +30,39 @@ function addNewWord() {
   newElement.prepend(newIndex);
   divDict.appendChild(newElement);
   newDictionary.appendChild(divDict);
-  input.value = "";
 
   // english===========================
   const englElem = document.createElement("div");
   englElem.className = "english";
-  english.appendChild(englElem);
-
-
-  
-
-  // const newDiv = document.querySelector(".english");
-  // const newSpan = document.createElement("span");
-  // englElem.className = "english";
-  // englElem.innerText = input.value;
-  // // englElem.innerText = indexes.length + 1;
-
-  // const div2Dict = document.createElement("div");
-  // div2Dict.className = "row";
-
-  // const newImg = document.querySelector("img");
-  // newImg.className = "english_krestik";
-  // newImg.src = "./icons/krestik.svg";
-  // newImg.alt = "#";
-
-  // englElem.appendChild(newSpan);
-  // englElem.appendChild(newImg);
-  // div2Dict.appendChild(englElem);
-  // div2Dict.appendChild(newDiv);
-  // newDictionary.appendChild(div2Dict);
+  divDict.appendChild(englElem);
+  // translit ========================
+  const englWord = translit(input.value);
+  englElem.innerText = englWord;
+  divDict.append(englElem);
+  input.value = "";
 }
 
-// // делаем удаление srase
+function translit(addNewWord) {
+  let result = "";
+  for (let i = 0; i < addNewWord.length; i++) {
+    if (dictionary[addNewWord[i]] && dictionary[addNewWord[i]]) {
+      result += dictionary[addNewWord[i]];
+    } else {
+      result += addNewWord[i];
+    }
+  }
+  return result;
+}
+
+const dictionary = {
+  а: "а",
+  б: "b",
+  с: "с",
+  д: "d",
+  и: "i",
+};
+
+// // делаем удаление erase
 // btn.addEventListener("click", ("src="./icons/krestik.svg"") {
 //   for (i = 0; i < indexes.length; i--)
 //   {

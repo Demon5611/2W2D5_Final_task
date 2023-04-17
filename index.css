@@ -63,7 +63,6 @@
 }
 
 .row {
-    /* padding-top: 40px; */
     align-items: center;
     display: inline-flex;
     width: 500px;
@@ -81,8 +80,6 @@
     border-right: none;
     min-height: 40px;
     width: 250px;
-
-    border-start-start-radius: 8px;
 }
 .index {
     padding-right: 15px;
@@ -105,15 +102,24 @@
 .delete {
     border-radius: 45px;
     display: flex;
-    margin-left: 145px;
+    margin-left: 130px;
+}
+/*==скругление краниц списка==*/
+.russian:first-child {
+    border-top-left-radius: 8px;
+}
+/* .english:first-child {
+    border-top-right-radius: 8px;
+} */
+
+.russian:last-child {
+    border-bottom-left-radius: 8px;
+}
+.english:last-child {
+    border-bottom-right-radius: 8px;
 }
 
-.english_krestik {
-}
 /*== ERASE ================================== =*/
-
-.erase {
-}
 
 .btnErase {
     display: inline-block;
