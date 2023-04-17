@@ -38,6 +38,19 @@ function addNewWord() {
   // translit ========================
   const englWord = translit(input.value);
   englElem.innerText = englWord;
+  // krestik ========================
+  const btnDel = document.createElement("button");
+  const newImg = document.createElement("img");
+  newImg.className = "english_krestik";
+  newImg.src = "./icons/krestik.svg";
+  newImg.alt = "#";
+  btnDel.style.cssText = `
+  border-radius: 45px;
+  display: flex;
+  margin-left: 130px;`
+  btnDel.appendChild(newImg);
+  englElem.appendChild(btnDel);
+
   divDict.append(englElem);
   input.value = "";
 }
