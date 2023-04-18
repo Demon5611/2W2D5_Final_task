@@ -4,13 +4,9 @@ let newDictionary = document.querySelector(".dictionary");
 const english = document.querySelector(".english");
 
 btn.addEventListener("click", addNewWord);
-
-// keydown работает только с  input полем
-// event.key  - key - это обьект, где указывается то, на что нажали
 input.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     addNewWord();
-    // console.log(event) смотрим что дает нажатие клавиши
   }
 });
 
@@ -18,7 +14,6 @@ function addNewWord() {
   const indexes = document.querySelectorAll(".index");
   const divDict = document.createElement("div");
   divDict.className = "row";
-
   const div = document.querySelector(".russian");
   const newElement = document.createElement("div");
   const newIndex = document.createElement("span");
@@ -48,26 +43,56 @@ function addNewWord() {
   border-radius: 45px;
   display: flex;
   margin-left: 130px;`;
-
   // удаление по крестику================
-
   newImg.addEventListener("click", (event) => {
     newElement.remove();
     englElem.remove();
     divDict.remove();
-
     let indexes = document.querySelectorAll(".index");
     indexes.forEach((elem, index) => {
       elem.innerText = index + 1;
     });
   });
-
-  // ================
   btnDel.appendChild(newImg);
   englElem.appendChild(btnDel);
   divDict.append(englElem);
   input.value = "";
+
+  // обрезаем текст ================
+
+  if (newElement.innerText.length > 7) {
+    const newDivLongText = document.createElement("div");
+    newDivLongText.className = "full";
+    newDivLongText.innerText = input.value;
+    newElement.appendChild(newDivLongText);
+    englElem.appendChild(newDivLongText);
+    newElement.innerText = newElement.innerText.slice(0, 7) + "...";
+    englElem.innerText = englElem.innerText.slice(0, 7) + "...";
+  }
 }
+
+// =================================
+//   let newDiv = document.querySelector("div");
+//   newDiv.className = "row";
+// for (let i = 0; i < addNewWord.length; i++)
+// {
+//   if (addNewWord.length > 7)
+//   {
+//     const newDivLongText = document.createElement("div");
+//     newDivLongText.className = "new_long_words";
+//     newDivLongText.innerText = `${input.value} {...}`;
+//     newDivLongText.slice(0, 7);
+//     newDiv.append(newDivLongText);
+//     console.log(newDivLongText);
+//   } else
+//   {
+//     const newDivShortText = document.createElement("div");
+//     newDivShortText.className = "new_short_words";
+//     newDivShortText.innerText = input.value;
+//     newDiv.append(newDivShortText);
+//     console.log(newDivShortText);
+//   }
+// }
 
 // удаление по кнопке Очистить Все ================
 window.addEventListener("load", (event) => {

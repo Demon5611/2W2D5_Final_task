@@ -85,6 +85,45 @@
     padding-right: 15px;
 }
 
+.full{
+    /* display: none; */
+     /* position: absolute; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+
+    background: #f0f0f0;
+    border: 2px solid #111111;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    min-height: 40px;
+    width: 250px; */
+
+
+}
+
+..short{
+    /* position: relative; */
+
+    /* display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+
+    background: #f0f0f0;
+    border: 2px solid #111111;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    min-height: 40px;
+    width: 250px; */
+ 
+}
+
+
+
 .english {
     display: flex;
     justify-content: flex-start;
@@ -144,6 +183,8 @@
     position: relative;
     z-index: 1;
 }
+
+
 
 /*==Mobile===*/
 
