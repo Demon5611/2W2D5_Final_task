@@ -61,38 +61,34 @@ function addNewWord() {
   // обрезаем текст ================
 
   if (newElement.innerText.length > 7) {
+    newElement.innerText = newElement.innerText.slice(0, 7) + "...";
+    englElem.innerText = englElem.innerText.slice(0, 7) + "...";
+  }
+
+  if (newElement.innerText.length > 7) {
     const newDivLongText = document.createElement("div");
     newDivLongText.className = "full";
     newDivLongText.innerText = input.value;
     newElement.appendChild(newDivLongText);
-    englElem.appendChild(newDivLongText);
-    newElement.innerText = newElement.innerText.slice(0, 7) + "...";
-    englElem.innerText = englElem.innerText.slice(0, 7) + "...";
+    // englElem.appendChild(newDivLongText);
+
+    const tooltip = document.createElement("span");
+    tooltip.className = "tooltip-up";
+    tooltip.innerText = input.value;
+    newElement.appendChild(tooltip);
+
+    tooltip.addEventListener("mouseenter", showText);
+    // newElement.addEventListener('mouseleave', hideText);
+    function showText() {
+      tooltip.style.display = "block";
+    }
+
+    //   function hideText ()
+    //   {
+    //     tooltip.style.display = 'none';
+    //   }
   }
 }
-
-// =================================
-//   let newDiv = document.querySelector("div");
-//   newDiv.className = "row";
-// for (let i = 0; i < addNewWord.length; i++)
-// {
-//   if (addNewWord.length > 7)
-//   {
-//     const newDivLongText = document.createElement("div");
-//     newDivLongText.className = "new_long_words";
-//     newDivLongText.innerText = `${input.value} {...}`;
-//     newDivLongText.slice(0, 7);
-//     newDiv.append(newDivLongText);
-//     console.log(newDivLongText);
-//   } else
-//   {
-//     const newDivShortText = document.createElement("div");
-//     newDivShortText.className = "new_short_words";
-//     newDivShortText.innerText = input.value;
-//     newDiv.append(newDivShortText);
-//     console.log(newDivShortText);
-//   }
-// }
 
 // удаление по кнопке Очистить Все ================
 window.addEventListener("load", (event) => {
