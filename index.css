@@ -63,16 +63,16 @@
 }
 
 .row {
-    align-items: center;
+    align-items: stretch;
     display: inline-flex;
     width: 500px;
 }
-.russian {
+.russian, .russian_cut {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-left: 10px;
-
+    
     background: #f0f0f0;
     border: 2px solid #111111;
     border-top: none;
@@ -81,8 +81,23 @@
     min-height: 40px;
     width: 250px;
 }
+
+
+.english, .english_cut{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 12px;
+    background: #ccc9c9;
+    border: 2px solid #111111;
+    border-top: none;
+    border-right: none;
+    min-height: 40px;
+    width: 250px;
+    border-top-right-radius: 8px;
+}
 .index {
-    padding-right: 15px;
+    padding-right: 5px;
 }
 
 .full{ 
@@ -125,24 +140,11 @@
 }
 
 
-.english {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 28px;
-
-    background: #ccc9c9;
-    border: 2px solid #111111;
-    border-top: none;
-    border-right: none;
-    min-height: 40px;
-    width: 250px;
-    border-top-right-radius: 8px;
-}
 .delete {
     border-radius: 45px;
     display: flex;
-    margin-left: 130px;
+    margin-left: 120px;
+    margin-right: 5px;
 }
 /*==скругление краниц списка==*/
 .russian:first-child {
@@ -203,5 +205,8 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
+    }
+    input{
+        width: 328px;
     }
 }

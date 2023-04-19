@@ -10,6 +10,8 @@ input.addEventListener("keydown", (event) => {
   }
 });
 
+function krestik() {}
+
 function addNewWord() {
   const indexes = document.querySelectorAll(".index");
   const divDict = document.createElement("div");
@@ -29,11 +31,13 @@ function addNewWord() {
   // english===========================
   const englElem = document.createElement("div");
   englElem.className = "english";
+  // const englElemSpan = document.createElement("span");
   divDict.appendChild(englElem);
   // translit ========================
   const englWord = translit(input.value);
   englElem.innerText = englWord;
-  // krestik ========================
+
+  // krestik создание========================
   const btnDel = document.createElement("button");
   const newImg = document.createElement("img");
   newImg.className = "english_krestik";
@@ -53,41 +57,68 @@ function addNewWord() {
       elem.innerText = index + 1;
     });
   });
+
   btnDel.appendChild(newImg);
   englElem.appendChild(btnDel);
   divDict.append(englElem);
-  input.value = "";
 
   // обрезаем текст ================
 
-  if (newElement.innerText.length > 7) {
+  if (newElement.innerText.length > 6) {
     newElement.innerText = newElement.innerText.slice(0, 7) + "...";
-    englElem.innerText = englElem.innerText.slice(0, 7) + "...";
-  }
+    englElem.innerText = englElem.innerText.slice(0, 5) + "...";
+    newElement.className = "russian_cut";
+    englElem.className = "english_cut";
 
-  if (newElement.innerText.length > 7) {
-    const newDivLongText = document.createElement("div");
-    newDivLongText.className = "full";
-    newDivLongText.innerText = input.value;
-    newElement.appendChild(newDivLongText);
+    // krestik создание========
+    const btnDel = document.createElement("button");
+    const newImg = document.createElement("img");
+    newImg.className = "english_krestik";
+    newImg.src = "./icons/krestik.svg";
+    newImg.alt = "#";
+    btnDel.style.cssText = `
+border-radius: 45px;
+display: flex;
+margin-left: 130px;`;
+    // удаление по крестику================
+    newImg.addEventListener("click", (event) => {
+      newElement.remove();
+      englElem.remove();
+      divDict.remove();
+      let indexes = document.querySelectorAll(".index");
+      indexes.forEach((elem, index) => {
+        elem.innerText = index + 1;
+      });
+    });
+    btnDel.appendChild(newImg);
+    englElem.appendChild(btnDel);
+    divDict.append(englElem);
+    // =================
+
+    // const newDivLongText = document.createElement("div");
+    // newDivLongText.className = "full";
+    // newDivLongText.innerText = input.value;
+    // newElement.appendChild(newDivLongText);
     // englElem.appendChild(newDivLongText);
+    // console.log(newDivLongText) // пустой див
 
-    const tooltip = document.createElement("span");
-    tooltip.className = "tooltip-up";
-    tooltip.innerText = input.value;
-    newElement.appendChild(tooltip);
+    //   const tooltip = document.createElement("span");
+    //   tooltip.className = "tooltip-up";
+    //   tooltip.innerText = input.value;
+    //   newElement.appendChild(tooltip);
+    //   newElement.style.dysplay = 'none'
+    // console.log(tooltip) // пустой спан
 
-    tooltip.addEventListener("mouseenter", showText);
+    // tooltip.addEventListener("mouseenter", showText);
     // newElement.addEventListener('mouseleave', hideText);
-    function showText() {
-      tooltip.style.display = "block";
-    }
-
+    // function showText() {
+    //   tooltip.style.display = "block";
+    // }
     //   function hideText ()
     //   {
     //     tooltip.style.display = 'none';
-    //   }
   }
+  input.value = "";
 }
 
 // удаление по кнопке Очистить Все ================
@@ -96,6 +127,7 @@ window.addEventListener("load", (event) => {
     location.reload(true);
   };
 });
+
 // ===function translit=============
 function translit(addNewWord) {
   let result = "";
