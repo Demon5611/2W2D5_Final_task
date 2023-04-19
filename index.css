@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 1280px;
     height: 100%;
 }
 .translit {
@@ -65,78 +65,72 @@
 .row {
     align-items: stretch;
     display: inline-flex;
-    width: 500px;
+    width: 100%;
+}
+
+/*==границы колонок== не работает*/
+
+/* выбрать все дочерние элементы элемента, кроме последнего элемента.*/
+.russian,
+.russian_cut:not(:last-child) {
+    border-bottom: 1px solid black;
 }
 .russian,
+.russian_cut:first-child {
+    border-top-left-radius: 8px;
+}
+.russian + .russian_cut:last-child {
+    border-bottom-left-radius: 8px;
+}
+
+.english + .english_cut:not(:last-child) {
+}
+.english + .english_cut:first-child {
+    border-top-right-radius: 8px;
+}
+.english,
+.english_cut:last-child {
+    border-bottom-right-radius: 8px;
+    border-bottom: none;
+}
+
+.russian,
 .russian_cut {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 10px;
-
+    white-space: normal;
     background: #f0f0f0;
-    border: 2px solid #111111;
-    border-top: none;
-    border-left: none;
-    border-right: none;
     min-height: 40px;
-    width: 250px;
+    width: 100%;
+    padding-left: 10px;
+    border-right: none;
+    border-top: none;
 }
 
 .english,
 .english_cut {
+    white-space: pre-wrap;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding-left: 12px;
     background: #ccc9c9;
-    border: 2px solid #111111;
+    border: 1px solid #111111;
     border-top: none;
     border-right: none;
     min-height: 40px;
-    width: 250px;
-    border-top-right-radius: 8px;
+    width: 100%;
 }
 .index {
     padding-right: 5px;
 }
 
-.full {
-    /* display: none; */
-    /* position: absolute; */
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 10px;
-
-    background: #f0f0f0;
-    border: 2px solid #111111;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    min-height: 40px;
-    width: 250px; */
-}
-
-.short {
-    /* position: relative; */
-
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 10px;
-
-    background: #f0f0f0;
-    border: 2px solid #111111;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    min-height: 40px;
-    width: 250px; */
-}
 .tooltip-up {
     position: fixed;
-    /* z-index: 100; */
     padding: 10px 20px;
     border: 1px solid #b3c9ce;
     border-radius: 10px;
@@ -146,27 +140,18 @@
     background: #ffffff;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    width: 140px;
+    hyphens: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: #333;
 }
-
+/*================т*/
 .delete {
     border-radius: 45px;
     display: flex;
-    margin-left: 120px;
+    /* margin-left: 140px; */
     margin-right: 5px;
-}
-/*==скругление краниц списка==*/
-.russian:first-child {
-    border-top-left-radius: 8px;
-}
-/* .english:first-child {
-    border-top-right-radius: 8px;
-} */
-
-.russian:last-child {
-    border-bottom-left-radius: 8px;
-}
-.english:last-child {
-    border-bottom-right-radius: 8px;
 }
 
 /*== ERASE ================================== =*/
@@ -196,23 +181,32 @@
 }
 
 /*==Mobile===*/
-
-@media (max-width: 358px) {
-    /* .dictionary {
+/* max-width: 768px; */
+@media (max-width: 328px) {
+    .dictionary {
+        display: flex;
         justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
-        display: inline-flex;
-        
-        width: 328px;
-        height: 100px;
-    } */
+        /* display: table-column; */
+        max-width: 328px;
+        height: auto;
+    }
 
     .container {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
+        height: auto;
+        margin: 0%;
     }
     input {
-        width: 328px;
+        width: 228px;
+    }
+    .english,
+    .english_cut {
+        position: relative;
+        width: 50%;
     }
 }
