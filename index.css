@@ -23,12 +23,11 @@
     font-weight: 600;
     font-size: 40px;
     line-height: 52px;
-    letter-spacing: -8%;
+    letter-spacing: 8px;
 }
 
 .input-form {
     position: relative;
-    font-weight: 40px;
     font-size: 8px;
     align-items: center;
     display: inline-flex;
@@ -91,7 +90,7 @@
 .english,
 .english_cut:last-child {
     border-bottom-right-radius: 8px;
-    border-bottom: none;
+    /* border-bottom: none; */
 }
 
 .russian,
@@ -144,7 +143,6 @@
     hyphens: auto;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-shadow: #333;
 }
 /*================т*/
 .delete {
