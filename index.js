@@ -10,9 +10,8 @@ input.addEventListener("keydown", (event) => {
   }
 });
 
-function krestik() {}
-
-function addNewWord() {
+function addNewWord ()
+{
   const indexes = document.querySelectorAll(".index");
   const divDict = document.createElement("div");
   divDict.className = "row";
@@ -33,6 +32,7 @@ function addNewWord() {
   englElem.className = "english";
   // const englElemSpan = document.createElement("span");
   divDict.appendChild(englElem);
+
   // translit ========================
   const englWord = translit(input.value);
   englElem.innerText = englWord;
@@ -47,13 +47,16 @@ function addNewWord() {
   border-radius: 45px;
   display: flex;
   margin-left: 130px;`;
+
   // удаление по крестику================
-  newImg.addEventListener("click", (event) => {
+  newImg.addEventListener("click", (event) =>
+  {
     newElement.remove();
     englElem.remove();
     divDict.remove();
     let indexes = document.querySelectorAll(".index");
-    indexes.forEach((elem, index) => {
+    indexes.forEach((elem, index) =>
+    {
       elem.innerText = index + 1;
     });
   });
@@ -63,64 +66,63 @@ function addNewWord() {
   divDict.append(englElem);
 
   // обрезаем текст ================
-
-  if (newElement.innerText.length > 6) {
+  if (newElement.innerText.length > 6)
+  {
     newElement.innerText = newElement.innerText.slice(0, 7) + "...";
     englElem.innerText = englElem.innerText.slice(0, 5) + "...";
     newElement.className = "russian_cut";
     englElem.className = "english_cut";
 
-    // krestik создание========
+    // krestik ========
     const btnDel = document.createElement("button");
     const newImg = document.createElement("img");
     newImg.className = "english_krestik";
     newImg.src = "./icons/krestik.svg";
     newImg.alt = "#";
     btnDel.style.cssText = `
-border-radius: 45px;
-display: flex;
-margin-left: 130px;`;
+    border-radius: 45px;
+    display: flex;
+    margin-left: 130px;`;
     // удаление по крестику================
-    newImg.addEventListener("click", (event) => {
+    newImg.addEventListener("click", (event) =>
+    {
       newElement.remove();
       englElem.remove();
       divDict.remove();
       let indexes = document.querySelectorAll(".index");
-      indexes.forEach((elem, index) => {
+      indexes.forEach((elem, index) =>
+      {
         elem.innerText = index + 1;
       });
     });
     btnDel.appendChild(newImg);
     englElem.appendChild(btnDel);
     divDict.append(englElem);
-    // =================
+
+    // ======tool-tip===========
 
     // const newDivLongText = document.createElement("div");
     // newDivLongText.className = "full";
     // newDivLongText.innerText = input.value;
     // newElement.appendChild(newDivLongText);
-    // englElem.appendChild(newDivLongText);
-    // console.log(newDivLongText) // пустой див
 
-    //   const tooltip = document.createElement("span");
-    //   tooltip.className = "tooltip-up";
-    //   tooltip.innerText = input.value;
-    //   newElement.appendChild(tooltip);
-    //   newElement.style.dysplay = 'none'
-    // console.log(tooltip) // пустой спан
+    const tooltip = document.createElement("span");
+    tooltip.className = "tooltip-up";
+    tooltip.innerText = input.value;
+    newElement.appendChild(tooltip);
+  
+    newElement.addEventListener("mouseover", showText);
+    newElement.addEventListener('mouseleave', hideText);
 
-    // tooltip.addEventListener("mouseenter", showText);
-    // newElement.addEventListener('mouseleave', hideText);
-    // function showText() {
-    //   tooltip.style.display = "block";
-    // }
-    //   function hideText ()
-    //   {
-    //     tooltip.style.display = 'none';
+    function showText () {
+      tooltip.style.display = "block";
+    }
+    function hideText (){
+      tooltip.style.display = 'none';
+    }
+    input.value = "";
   }
-  input.value = "";
 }
-
 // удаление по кнопке Очистить Все ================
 window.addEventListener("load", (event) => {
   document.querySelector(".btnErase").onclick = function () {
@@ -141,72 +143,72 @@ function translit(addNewWord) {
   return result;
 }
 
-const dictionary = {
-  а: "а",
-  б: "b",
-  в: "v",
-  В: "V",
-  г: "g",
-  Г: "G",
-  Д: "D",
-  д: "d",
-  с: "с",
-  д: "d",
-  и: "i",
-  Е: "E",
-  е: "e",
-  Ё: "Yo",
-  ё: "yo",
-  Ж: "Zh",
-  ж: "zh",
-  З: "Z",
-  з: "z",
-  И: "I",
-  и: "i",
-  Й: "J",
-  й: "j",
-  К: "K",
-  к: "k",
-  Л: "L",
-  л: "l",
-  М: "M",
-  м: "m",
-  Н: "N",
-  н: "n",
-  О: "O",
-  о: "o",
-  П: "P",
-  п: "p",
-  Р: "R",
-  р: "r",
-  С: "S",
-  с: "s",
-  Т: "T",
-  т: "t",
-  У: "U",
-  у: "u",
-  Ф: "F",
-  ф: "f",
-  Х: "X",
-  х: "x",
-  Ц: "C",
-  ц: "c",
-  Ч: "Ch",
-  ч: "ch",
-  Ш: "Sh",
-  ш: "sh",
-  Щ: "Shh",
-  щ: "shh",
-  Ъ: '"',
-  ъ: '"',
-  Ы: "Y'",
-  ы: "y'",
-  Ь: "'",
-  ь: "'",
-  Э: "E'",
-  э: "e'",
-  Ю: "Yu",
-  ю: "yu",
-  Я: "Ya",
-  я: "ya",
-};
+  const dictionary = {
+    а: "а",
+    б: "b",
+    в: "v",
+    В: "V",
+    г: "g",
+    Г: "G",
+    Д: "D",
+    д: "d",
+    с: "с",
+    д: "d",
+    и: "i",
+    Е: "E",
+    е: "e",
+    Ё: "Yo",
+    ё: "yo",
+    Ж: "Zh",
+    ж: "zh",
+    З: "Z",
+    з: "z",
+    И: "I",
+    и: "i",
+    Й: "J",
+    й: "j",
+    К: "K",
+    к: "k",
+    Л: "L",
+    л: "l",
+    М: "M",
+    м: "m",
+    Н: "N",
+    н: "n",
+    О: "O",
+    о: "o",
+    П: "P",
+    п: "p",
+    Р: "R",
+    р: "r",
+    С: "S",
+    с: "s",
+    Т: "T",
+    т: "t",
+    У: "U",
+    у: "u",
+    Ф: "F",
+    ф: "f",
+    Х: "X",
+    х: "x",
+    Ц: "C",
+    ц: "c",
+    Ч: "Ch",
+    ч: "ch",
+    Ш: "Sh",
+    ш: "sh",
+    Щ: "Shh",
+    щ: "shh",
+    Ъ: '"',
+    ъ: '"',
+    Ы: "Y'",
+    ы: "y'",
+    Ь: "'",
+    ь: "'",
+    Э: "E'",
+    э: "e'",
+    Ю: "Yu",
+    ю: "yu",
+    Я: "Ya",
+    я: "ya",
+  };
