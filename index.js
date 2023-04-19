@@ -10,8 +10,7 @@ input.addEventListener("keydown", (event) => {
   }
 });
 
-function addNewWord ()
-{
+function addNewWord() {
   const indexes = document.querySelectorAll(".index");
   const divDict = document.createElement("div");
   divDict.className = "row";
@@ -49,14 +48,12 @@ function addNewWord ()
   margin-left: 130px;`;
 
   // удаление по крестику================
-  newImg.addEventListener("click", (event) =>
-  {
+  newImg.addEventListener("click", (event) => {
     newElement.remove();
     englElem.remove();
     divDict.remove();
     let indexes = document.querySelectorAll(".index");
-    indexes.forEach((elem, index) =>
-    {
+    indexes.forEach((elem, index) => {
       elem.innerText = index + 1;
     });
   });
@@ -66,8 +63,7 @@ function addNewWord ()
   divDict.append(englElem);
 
   // обрезаем текст ================
-  if (newElement.innerText.length > 6)
-  {
+  if (newElement.innerText.length > 6) {
     newElement.innerText = newElement.innerText.slice(0, 7) + "...";
     englElem.innerText = englElem.innerText.slice(0, 5) + "...";
     newElement.className = "russian_cut";
@@ -84,14 +80,12 @@ function addNewWord ()
     display: flex;
     margin-left: 130px;`;
     // удаление по крестику================
-    newImg.addEventListener("click", (event) =>
-    {
+    newImg.addEventListener("click", (event) => {
       newElement.remove();
       englElem.remove();
       divDict.remove();
       let indexes = document.querySelectorAll(".index");
-      indexes.forEach((elem, index) =>
-      {
+      indexes.forEach((elem, index) => {
         elem.innerText = index + 1;
       });
     });
@@ -101,25 +95,36 @@ function addNewWord ()
 
     // ======tool-tip===========
 
-    // const newDivLongText = document.createElement("div");
-    // newDivLongText.className = "full";
-    // newDivLongText.innerText = input.value;
-    // newElement.appendChild(newDivLongText);
-
     const tooltip = document.createElement("span");
     tooltip.className = "tooltip-up";
     tooltip.innerText = input.value;
     newElement.appendChild(tooltip);
-  
-    newElement.addEventListener("mouseover", showText);
-    newElement.addEventListener('mouseleave', hideText);
 
-    function showText () {
+    const tooltipEngl = document.createElement("span");
+    tooltipEngl.className = "tooltip-up";
+    tooltipEngl.innerText = englWord;
+    englElem.appendChild(tooltipEngl);
+
+    newElement.addEventListener("mouseover", showText);
+    newElement.addEventListener("mouseleave", hideText);
+
+    englElem.addEventListener("mouseover", showText2);
+    englElem.addEventListener("mouseleave", hideText2);
+
+    function showText() {
       tooltip.style.display = "block";
     }
-    function hideText (){
-      tooltip.style.display = 'none';
+    function hideText() {
+      tooltip.style.display = "none";
     }
+
+    function showText2() {
+      tooltipEngl.style.display = "block";
+    }
+    function hideText2() {
+      tooltipEngl.style.display = "none";
+    }
+
     input.value = "";
   }
 }
@@ -143,72 +148,72 @@ function translit(addNewWord) {
   return result;
 }
 
-  const dictionary = {
-    а: "а",
-    б: "b",
-    в: "v",
-    В: "V",
-    г: "g",
-    Г: "G",
-    Д: "D",
-    д: "d",
-    с: "с",
-    д: "d",
-    и: "i",
-    Е: "E",
-    е: "e",
-    Ё: "Yo",
-    ё: "yo",
-    Ж: "Zh",
-    ж: "zh",
-    З: "Z",
-    з: "z",
-    И: "I",
-    и: "i",
-    Й: "J",
-    й: "j",
-    К: "K",
-    к: "k",
-    Л: "L",
-    л: "l",
-    М: "M",
-    м: "m",
-    Н: "N",
-    н: "n",
-    О: "O",
-    о: "o",
-    П: "P",
-    п: "p",
-    Р: "R",
-    р: "r",
-    С: "S",
-    с: "s",
-    Т: "T",
-    т: "t",
-    У: "U",
-    у: "u",
-    Ф: "F",
-    ф: "f",
-    Х: "X",
-    х: "x",
-    Ц: "C",
-    ц: "c",
-    Ч: "Ch",
-    ч: "ch",
-    Ш: "Sh",
-    ш: "sh",
-    Щ: "Shh",
-    щ: "shh",
-    Ъ: '"',
-    ъ: '"',
-    Ы: "Y'",
-    ы: "y'",
-    Ь: "'",
-    ь: "'",
-    Э: "E'",
-    э: "e'",
-    Ю: "Yu",
-    ю: "yu",
-    Я: "Ya",
-    я: "ya",
-  };
+const dictionary = {
+  а: "а",
+  б: "b",
+  в: "v",
+  В: "V",
+  г: "g",
+  Г: "G",
+  Д: "D",
+  д: "d",
+  с: "с",
+  д: "d",
+  и: "i",
+  Е: "E",
+  е: "e",
+  Ё: "Yo",
+  ё: "yo",
+  Ж: "Zh",
+  ж: "zh",
+  З: "Z",
+  з: "z",
+  И: "I",
+  и: "i",
+  Й: "J",
+  й: "j",
+  К: "K",
+  к: "k",
+  Л: "L",
+  л: "l",
+  М: "M",
+  м: "m",
+  Н: "N",
+  н: "n",
+  О: "O",
+  о: "o",
+  П: "P",
+  п: "p",
+  Р: "R",
+  р: "r",
+  С: "S",
+  с: "s",
+  Т: "T",
+  т: "t",
+  У: "U",
+  у: "u",
+  Ф: "F",
+  ф: "f",
+  Х: "X",
+  х: "x",
+  Ц: "C",
+  ц: "c",
+  Ч: "Ch",
+  ч: "ch",
+  Ш: "Sh",
+  ш: "sh",
+  Щ: "Shh",
+  щ: "shh",
+  Ъ: '"',
+  ъ: '"',
+  Ы: "Y'",
+  ы: "y'",
+  Ь: "'",
+  ь: "'",
+  Э: "E'",
+  э: "e'",
+  Ю: "Yu",
+  ю: "yu",
+  Я: "Ya",
+  я: "ya",
+};
